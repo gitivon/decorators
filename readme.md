@@ -30,3 +30,11 @@ _todo: 增加入参的识别_
 ``` shell
 npm i @gitivon/decorators -D
 ```
+
+## registory
+[Github](https://github.com/gitivon/decorators)
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
+
+Copyright (c) 2018 Ivon Hua
