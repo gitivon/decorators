@@ -9,10 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const middleware_1 = require("./middleware");
-const timeout = (t) => new Promise(r => {
-    // @ts-ignore
-    setTimeout(r, t);
-});
+const timeout = (t) => new Promise(r => setTimeout(r, t));
 exports.sleep = (t) => (target, name, descriptor) => middleware_1.default({ target, name, descriptor }, (next) => __awaiter(this, void 0, void 0, function* () {
     yield timeout(t);
     yield next();

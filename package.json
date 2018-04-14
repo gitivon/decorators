@@ -1,6 +1,6 @@
 {
   "name": "@gitivon/decorators",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "* middleware * once",
   "main": "./dist/index.js",
   "types": "./src/index.d.ts",
