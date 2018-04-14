@@ -1,17 +1,23 @@
-import { sleep } from '../src';
+import { once } from '../src';
+
+const c = (target, name, desc) => {
+  console.log(desc.get);
+};
 
 class A {
 
-  @sleep(2000)
-  async get() {
-    return this;
+  @once()
+  get get() {
+    console.log('run');
+    return 'c';
   }
 
 }
 
 (async () => {
   console.time('A');
-  const a = new A();
-  await a.get();
+  const a = new A;
+  console.log(a.get);
+  console.log(a.get);
   console.timeEnd('A');
-})()
+})();

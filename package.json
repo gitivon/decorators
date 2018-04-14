@@ -15,7 +15,7 @@
     "typescript": "^2.8.1"
   },
   "scripts": {
-    "dev": "ts-node",
+    "dev": "ts-node ./test/index.ts",
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "test": "npm run lint"
