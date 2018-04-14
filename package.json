@@ -11,12 +11,14 @@
   "devDependencies": {
     "@types/node": "^9.6.4",
     "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
     "typescript": "^2.8.1"
   },
   "scripts": {
     "dev": "ts-node",
     "build": "tsc",
-    "test": "ts-node ./test/index.ts"
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "test": "npm run lint"
   },
   "author": "gitivon",
   "license": "MIT",
