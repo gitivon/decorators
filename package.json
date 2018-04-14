@@ -1,0 +1,26 @@
+{
+  "name": "@gitivon/decorators",
+  "version": "1.0.5",
+  "description": "* middleware * once",
+  "main": "./dist/index.js",
+  "types": "./src/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^9.6.4",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.8.1"
+  },
+  "scripts": {
+    "dev": "ts-node",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gitivon",
+  "license": "MIT",
+  "repository": {
+    "github": "https://github.com/gitivon/shareProject/tree/master/decorators"
+  }
+}
