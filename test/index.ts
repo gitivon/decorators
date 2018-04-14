@@ -3,13 +3,15 @@ import { sleep } from '../src';
 class A {
 
   @sleep(2000)
-  get() {
+  async get() {
     return this;
   }
 
 }
 
-console.time('A');
-const a = new A();
-a.get();
-console.timeEnd('A');
+(async () => {
+  console.time('A');
+  const a = new A();
+  await a.get();
+  console.timeEnd('A');
+})()
