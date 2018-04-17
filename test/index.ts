@@ -1,4 +1,7 @@
-import { once } from '../src';
+import { once, sleep, time } from '../src';
+
+const timeout = (t: number): Promise<void> =>
+  new Promise(r => setTimeout(r, t));
 
 const c = (target, name, desc) => {
   console.log(desc.get);
@@ -6,18 +9,30 @@ const c = (target, name, desc) => {
 
 class A {
 
+  @time('A')
   @once()
   get get() {
-    console.log('run');
-    return 'c';
+    // await timeout(2000);
+    return 'get';
   }
+
+  @time('B')
+  @once()
+  async asyncGet() {
+    await timeout(2000);
+    return 'asyncGet';
+  }
+
 
 }
 
 (async () => {
-  console.time('A');
   const a = new A;
+
+  a.get;
   console.log(a.get);
-  console.log(a.get);
-  console.timeEnd('A');
+
+  await a.asyncGet();
+  console.log(await a.asyncGet());
+
 })();
