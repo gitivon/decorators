@@ -9,11 +9,12 @@ const c = (target, name, desc) => {
 
 class A {
 
-  @time('A')
+  // @time('A')
   @once()
-  get get() {
+  get(s: any, x: any, t?: any) {
+    console.log('get run');
     // await timeout(2000);
-    return 'get';
+    return s;
   }
 
   @time('B')
@@ -23,16 +24,21 @@ class A {
     return 'asyncGet';
   }
 
-
 }
 
 (async () => {
   const a = new A;
+  const t = {o: 1};
+  // const t = 'key';
+  const x = 'key';
 
-  a.get;
-  console.log(a.get);
+  a.get(t, x);
+  await timeout(500);
+  a.get(t, x);
 
-  await a.asyncGet();
-  console.log(await a.asyncGet());
+  // console.log(a.get);
+
+  // await a.asyncGet();
+  // console.log(await a.asyncGet());
 
 })();
