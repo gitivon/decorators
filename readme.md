@@ -14,6 +14,7 @@
 * middleware
 * once
 * sleep
+* time
 
 ### middleware
 将方法修饰器进行简化，改造成类似 koa 中间件的形式，避免直接对 PropertyDescriptor 进行操作
@@ -24,6 +25,9 @@ _todo: 增加入参的识别_
 
 ### sleep
 你懂得，先sleep再执行
+
+### time
+类似`core-decorators`的`time`，用来计算方法的执行时间，区别是还可以用在异步函数上
 
 ## install
 

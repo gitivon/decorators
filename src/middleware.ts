@@ -10,7 +10,7 @@ interface DecoratorProps {
  */
 const MethodDecoratorMiddlewave = (
   { target, name, descriptor }: DecoratorProps,
-  fn: (next: () => Promise<any>) => any
+  fn: (next: () => Promise<any>, args: any[]) => any
 ) => {
   const attr = 'value' in descriptor ? 'value' : 'get';
   const oldValue = descriptor[attr];
@@ -19,7 +19,7 @@ const MethodDecoratorMiddlewave = (
     const next = () => {
       return oldValue.apply(this, args);
     };
-    return fn(next);
+    return fn(next, args);
   };
   return descriptor;
 };

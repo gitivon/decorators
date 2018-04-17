@@ -3,12 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const middleware_1 = require("./middleware");
 exports.once = () => {
     return (target, name, descriptor) => {
-        return middleware_1.default({ target, name, descriptor }, (next) => {
+        return middleware_1.default({ target, name, descriptor }, (next, args) => {
             const key = Symbol.for(name);
+            const argKey = JSON.stringify(args);
             if (!target[key]) {
-                target[key] = next();
+                target[key] = new Map();
             }
-            return target[key];
+            if (!target[key].has(argKey)) {
+                target[key].set(argKey, next());
+            }
+            return target[key].get(argKey);
         });
     };
 };
