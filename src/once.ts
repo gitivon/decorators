@@ -2,16 +2,21 @@ import MethodDecoratorMiddlewave from './middleware';
 
 export const once = () => {
   return (target: any, name: string, descriptor: PropertyDescriptor): PropertyDescriptor => {
-    return MethodDecoratorMiddlewave({ target, name, descriptor }, (next: () => Promise<any>, args) => {
+    return MethodDecoratorMiddlewave({ target, name, descriptor }, function (next: () => Promise<any>, args) {
       const key = Symbol.for(name);
       const argKey = JSON.stringify(args);
-      if (!target[key]) {
-        target[key] = new Map();
+      // @ts-ignore
+      if (!this[key]) {
+        // @ts-ignore
+        this[key] = new Map();
       }
-      if (!target[key].has(argKey)) {
-        target[key].set(argKey, next());
+      // @ts-ignore
+      if (!this[key].has(argKey)) {
+        // @ts-ignore
+        this[key].set(argKey, next());
       }
-      return target[key].get(argKey);
+      // @ts-ignore
+      return this[key].get(argKey);
     });
   };
 };

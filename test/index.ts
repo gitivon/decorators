@@ -8,37 +8,31 @@ const c = (target, name, desc) => {
 };
 
 class A {
+  b: string;
 
   // @time('A')
   @once()
-  get(s: any, x: any, t?: any) {
-    console.log('get run');
+  static get(s: any) {
+    console.log('get run', this);
     // await timeout(2000);
     return s;
-  }
-
-  @time('B')
-  @once()
-  async asyncGet() {
-    await timeout(2000);
-    return 'asyncGet';
   }
 
 }
 
 (async () => {
-  const a = new A;
-  const t = {o: 1};
-  // const t = 'key';
-  const x = 'key';
 
-  a.get(t, x);
-  await timeout(500);
-  a.get(t, x);
+  A.get(1);
+  A.get(1);
 
-  // console.log(a.get);
-
-  // await a.asyncGet();
-  // console.log(await a.asyncGet());
+  // const a = new A;
+  // const b = new A;
+  // a.b = 'a';
+  // b.b = 'b';
+  // const t = 1;
+  // a.get(t);
+  // // await timeout(500);
+  // a.get(t);
+  // b.get(t);
 
 })();

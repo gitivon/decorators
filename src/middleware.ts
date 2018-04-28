@@ -19,7 +19,7 @@ const MethodDecoratorMiddlewave = (
     const next = () => {
       return oldValue.apply(this, args);
     };
-    return fn(next, args);
+    return fn.apply(this, [next, args]);
   };
   return descriptor;
 };
