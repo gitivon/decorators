@@ -7,9 +7,15 @@
   "directories": {
     "lib": "lib"
   },
-  "dependencies": {},
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "lodash": "^4.17.11"
+  },
   "devDependencies": {
+    "@types/lodash": "^4.14.119",
     "@types/node": "^9.6.4",
+    "jest": "^23.6.0",
+    "reflect-metadata": "^0.1.12",
     "ts-node": "^5.0.1",
     "tslint": "^5.9.1",
     "typescript": "^2.8.1"
